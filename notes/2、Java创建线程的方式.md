@@ -318,6 +318,16 @@ public class FutureTaskTest {
 Process finished with exit code 0
 ```
 
+**分享一道面试题**
+
+请你告诉我启动线程的三种方式 ?
+
+你说第一个：new Thread().start()； 第二个: new Thread(Runnable).start() 这没问题 ；那第三个呢，
+
+要回答线程池也是用的这两种之一，他这么问有些吹毛求疵的意思，你就可以说通过线程池也可以启动
+
+一个新的线程 3:Executors.newCachedThreadPool()或者FutureTask + Callable
+
 ### 2.2 查看进程线程的方法
 
 #### windows
