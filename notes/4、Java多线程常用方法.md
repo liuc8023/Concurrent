@@ -354,3 +354,72 @@ public final synchronized void join(long millis)
 
 
 此外，对于join()的位置和作用的关系，我们可以用下面的例子来分析
+
+```java
+package cn.itcast.methods;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class ThreadJoinTest implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            log.info(""+i);
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        log.info(Thread.currentThread().getName()+" start");
+        Runnable r = new ThreadJoinTest();
+        Thread t = new Thread(r,"线程一");
+        Runnable r1 = new ThreadJoinTest();
+        Thread t1 = new Thread(r1,"线程二");
+        Runnable r2 = new ThreadJoinTest();
+        Thread t2 = new Thread(r2,"线程三");
+        log.info("t start");
+        t.start();
+        log.info("t end");
+        log.info("t1 start");
+        t1.start();
+        log.info("t1 end");
+        t.join();
+        log.info("t2 start");
+        t2.start();
+        log.info("t2 end");
+        log.info(Thread.currentThread().getName()+" end");
+    }
+}
+```
+
+执行结果
+
+```cpp hljs
+00:04:41.466 [main] INFO cn.itcast.methods.ThreadJoinTest - main start
+00:04:41.471 [main] INFO cn.itcast.methods.ThreadJoinTest - t start
+00:04:41.471 [main] INFO cn.itcast.methods.ThreadJoinTest - t end
+00:04:41.471 [main] INFO cn.itcast.methods.ThreadJoinTest - t1 start
+00:04:41.471 [main] INFO cn.itcast.methods.ThreadJoinTest - t1 end
+00:04:41.472 [线程一] INFO cn.itcast.methods.ThreadJoinTest - 0
+00:04:41.472 [线程一] INFO cn.itcast.methods.ThreadJoinTest - 1
+00:04:41.472 [线程一] INFO cn.itcast.methods.ThreadJoinTest - 2
+00:04:41.472 [线程一] INFO cn.itcast.methods.ThreadJoinTest - 3
+00:04:41.472 [线程一] INFO cn.itcast.methods.ThreadJoinTest - 4
+00:04:41.472 [main] INFO cn.itcast.methods.ThreadJoinTest - t2 start
+00:04:41.472 [main] INFO cn.itcast.methods.ThreadJoinTest - t2 end
+00:04:41.472 [main] INFO cn.itcast.methods.ThreadJoinTest - main end
+00:04:41.473 [线程二] INFO cn.itcast.methods.ThreadJoinTest - 0
+00:04:41.473 [线程二] INFO cn.itcast.methods.ThreadJoinTest - 1
+00:04:41.473 [线程二] INFO cn.itcast.methods.ThreadJoinTest - 2
+00:04:41.473 [线程二] INFO cn.itcast.methods.ThreadJoinTest - 3
+00:04:41.473 [线程二] INFO cn.itcast.methods.ThreadJoinTest - 4
+00:04:41.473 [线程三] INFO cn.itcast.methods.ThreadJoinTest - 0
+00:04:41.473 [线程三] INFO cn.itcast.methods.ThreadJoinTest - 1
+00:04:41.473 [线程三] INFO cn.itcast.methods.ThreadJoinTest - 2
+00:04:41.473 [线程三] INFO cn.itcast.methods.ThreadJoinTest - 3
+00:04:41.473 [线程三] INFO cn.itcast.methods.ThreadJoinTest - 4
+```
+
+​		多次实验可以看出，主线程在t.join()方法处停止，并需要等待线程一执行完毕后才会执行t2.start()，然而，并不影响二线程的执行。因此，可以得出结论，t.join()方法只会使主线程进入等待池并等待t线程执行完毕后才会被唤醒。并不影响同一时刻处在运行状态的其他线程。
+
+PS:join源码中，只会调用wait方法，并没有在结束时调用notify，这是因为线程在die的时候会自动调用自身的notifyAll方法，来释放所有的资源和锁。
