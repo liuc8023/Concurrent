@@ -11,7 +11,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ThreadSleepDontReleaseLock implements Runnable{
     private static final Lock lock = new ReentrantLock();
 
-
     @Override
     public void run() {
         String threadName = Thread.currentThread().getName();
