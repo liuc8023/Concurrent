@@ -12,6 +12,7 @@ public class ThreadJoin implements Runnable{
     }
 
     public static void main(String[] args) throws InterruptedException {
+        log.info(Thread.currentThread().getName()+"线程启动了");
         Runnable r = new ThreadJoin();
         Thread t = new Thread(r,"线程一");
         Runnable r1 = new ThreadJoin();
@@ -24,5 +25,7 @@ public class ThreadJoin implements Runnable{
          */
         t.join();
         t1.start();
+        t1.join();
+        log.info(Thread.currentThread().getName()+"结束了");
     }
 }
