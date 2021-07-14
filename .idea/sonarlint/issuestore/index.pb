@@ -19,8 +19,6 @@ c
 3src/main/java/c_001_03_Ordering/T03_ThisEscape.java,8\e\8e7f2676964355981e4548c8bafac3f868ea1625
 >
 .gitattributes,2\4\24139dae656713ba861751fb2c2ac38839349a7a
-V
-&notes/2、Java创建线程的方式.md,4\e\4e18b25def442ef76f57cd341ca2fe509dd0d3c2
 Y
 )src/main/java/cn/itcast/n3/frameTest.java,9\d\9db90d64c6970de552c6bf1b2539927f71178b96
 :
@@ -64,5 +62,3 @@ c
 3src/main/java/cn/itcast/methods/ThreadDaemonIo.java,2\3\233ff4bac00a6afdb5fcc5d9bdac0715940adaad
 a
 1src/main/java/cn/itcast/methods/ThreadDaemon.java,f\9\f9d6b43af53b44ee8dece952b68caf02a4a25e38
-b
-2src/main/java/cn/itcast/methods/ThreadIsAlive.java,5\5\554c6b2cbe6d5a596293761a0bfe1ab09e536d1d
