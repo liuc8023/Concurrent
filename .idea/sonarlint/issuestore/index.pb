@@ -60,3 +60,9 @@ m
 =src/main/java/cn/itcast/methods/ThreadPriorityRegularity.java,a\3\a32a3190c5c2bea7e845cc5422b18e25f920be69
 n
 >src/main/java/cn/itcast/methods/ThreadPriorityRandomicity.java,4\4\44fa8e4f0e06ba939a443107741a349c35da2a7a
+c
+3src/main/java/cn/itcast/methods/ThreadDaemonIo.java,2\3\233ff4bac00a6afdb5fcc5d9bdac0715940adaad
+a
+1src/main/java/cn/itcast/methods/ThreadDaemon.java,f\9\f9d6b43af53b44ee8dece952b68caf02a4a25e38
+b
+2src/main/java/cn/itcast/methods/ThreadIsAlive.java,5\5\554c6b2cbe6d5a596293761a0bfe1ab09e536d1d
