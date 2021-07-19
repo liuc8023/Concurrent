@@ -17,9 +17,10 @@
 ```
     t.join()方法只会使主线程(或者说调用t.join()的线程)进入等待池并等待t线程执行完毕后才会被唤醒。并不影响同一时刻处在运行状态的其他线程。
 ```
-下面则是分析过程。
+<font size="2">下面则是分析过程。</font>
 
-之前对于join()方法只是了解它能够使得t.join()中的t优先执行，当t执行完后才会执行其他线程。能够使得线程之间的并行执行变成串行执行。
+<font size="2">&ensp;&ensp;&ensp;&ensp;之前对于join()方法只是了解它能够使得t.join()中的t优先执行，当t执行完后才会执行其他线程。能够使得线程之间的并行执行变成串行执行。
+</font>
 
 ```java
 package cn.itcast.methods;
@@ -54,9 +55,9 @@ public class ThreadJoin implements Runnable{
 
 ```
 
-执行结果
+<font size="2">执行结果</font>
 
-```cpp hljs
+```
 22:10:37.544 [main] INFO cn.itcast.methods.ThreadJoin - main线程启动了
 22:10:37.548 [main] INFO cn.itcast.methods.ThreadJoin - main结束了
 22:10:37.548 [线程一] INFO cn.itcast.methods.ThreadJoin - 0
@@ -71,9 +72,10 @@ public class ThreadJoin implements Runnable{
 22:10:37.548 [线程二] INFO cn.itcast.methods.ThreadJoin - 4
 ```
 
-可以看出主线程先执行完成，然后线程一和线程二是交替执行的。
+<font size="2">&ensp;&ensp;&ensp;&ensp;可以看出主线程先执行完成，然后线程一和线程二是交替执行的。</font>
 
-而在其中加入join()方法后
+<font size="2">&ensp;&ensp;&ensp;&ensp;而在其中加入join()方法后
+</font>
 
 ```java
 package cn.itcast.methods;
@@ -109,9 +111,9 @@ public class ThreadJoin implements Runnable{
 }
 ```
 
-执行结果
+<font size="2">执行结果</font>
 
-```cpp hljs
+```
 22:11:56.930 [main] INFO cn.itcast.methods.ThreadJoin - main线程启动了
 22:11:56.933 [线程一] INFO cn.itcast.methods.ThreadJoin - 0
 22:11:56.933 [线程一] INFO cn.itcast.methods.ThreadJoin - 1
@@ -126,9 +128,10 @@ public class ThreadJoin implements Runnable{
 22:11:56.934 [main] INFO cn.itcast.methods.ThreadJoin - main结束了
 ```
 
-显然，使用t.join()之后，线程二需要等线程一执行完毕之后才能执行。需要注意的是，t.join()需要等t.start()执行之后执行才有效果，此外，如果t.join()放在t1.start()之后的话，仍然会是交替执行，然而并不是没有效果，这点困扰了我很久，也没在别的博客里看到过。
+<font size="2">&ensp;&ensp;&ensp;&ensp;显然，使用t.join()之后，线程二需要等线程一执行完毕之后才能执行。需要注意的是，t.join()需要等t.start()执行之后执行才有效果，此外，如果t.join()放在t1.start()之后的话，仍然会是交替执行，然而并不是没有效果，这点困扰了我很久，也没在别的博客里看到过。</font>
 
-为了深入理解，我们先看一下join()的源码。
+<font size="2">&ensp;&ensp;&ensp;&ensp;为了深入理解，我们先看一下join()的源码。
+</font>
 
 ```java
 /**
@@ -178,9 +181,10 @@ public final synchronized void join(long millis)
 }
 ```
 
-可以看出，join()方法的底层是利用wait()方法实现的。可以看出，join方法是一个同步方法，当主线程调用t.join()方法时，主线程先获得了t对象的锁，随后进入方法，调用了t对象的wait()方法，使主线程进入了t对象的等待池，此时，线程一则还在执行，并且随后的t1.start()还没被执行，因此，线程二也还没开始。等到线程一执行完毕之后，主线程继续执行，走到了t1.start()，线程二才会开始执行，所以就看到了上面的执行结果。
+<font size="2">&ensp;&ensp;&ensp;&ensp;可以看出，join()方法的底层是利用wait()方法实现的。可以看出，join方法是一个同步方法，当主线程调用t.join()方法时，主线程先获得了t对象的锁，随后进入方法，调用了t对象的wait()方法，使主线程进入了t对象的等待池，此时，线程一则还在执行，并且随后的t1.start()还没被执行，因此，线程二也还没开始。等到线程一执行完毕之后，主线程继续执行，走到了t1.start()，线程二才会开始执行，所以就看到了上面的执行结果。</font>
 
-看到上面的解释，你是否有疑问？
+<font size="2">&ensp;&ensp;&ensp;&ensp;看到上面的解释，你是否有疑问？
+</font>
 
 **问题：**
 ```
@@ -195,7 +199,8 @@ public final synchronized void join(long millis)
 ```
 
 
-此外，对于join()的位置和作用的关系，我们可以用下面的例子来分析
+<font size="2">&ensp;&ensp;&ensp;&ensp;此外，对于join()的位置和作用的关系，我们可以用下面的例子来分析
+</font>
 
 ```java
 package cn.itcast.methods;
@@ -234,9 +239,9 @@ public class ThreadJoinTest implements Runnable{
 }
 ```
 
-执行结果
+<font size="2">执行结果</font>
 
-```cpp hljs
+```
 00:04:41.466 [main] INFO cn.itcast.methods.ThreadJoinTest - main start
 00:04:41.471 [main] INFO cn.itcast.methods.ThreadJoinTest - t start
 00:04:41.471 [main] INFO cn.itcast.methods.ThreadJoinTest - t end
@@ -262,6 +267,8 @@ public class ThreadJoinTest implements Runnable{
 00:04:41.473 [线程三] INFO cn.itcast.methods.ThreadJoinTest - 4
 ```
 
-多次实验可以看出，主线程在t.join()方法处停止，并需要等待线程一执行完毕后才会执行t2.start()，然而，并不影响二线程的执行。因此，可以得出结论，t.join()方法只会使主线程进入等待池并等待t线程执行完毕后才会被唤醒。并不影响同一时刻处在运行状态的其他线程。
+<font size="2">&ensp;&ensp;&ensp;&ensp;多次实验可以看出，主线程在t.join()方法处停止，并需要等待线程一执行完毕后才会执行t2.start()，然而，并不影响二线程的执行。因此，可以得出结论，t.join()方法只会使主线程进入等待池并等待t线程执行完毕后才会被唤醒。并不影响同一时刻处在运行状态的其他线程。</font>
 
-PS:join源码中，只会调用wait方法，并没有在结束时调用notify，这是因为线程在die的时候会自动调用自身的notifyAll方法，来释放所有的资源和锁。
+<font size="2">&ensp;&ensp;&ensp;&ensp;PS:join源码中，只会调用wait方法，并没有在结束时调用notify，这是因为线程在die的时候会自动调用自身的notifyAll方法，来释放所有的资源和锁。
+</font>
+

@@ -90,17 +90,19 @@ public class ThreadSleepDontReleaseLock implements Runnable{
     }
 }
 ```
-不管执行多少次，都是先A输出再B输出 或者先B输出再A输出，不会出现交叉输出的状况，
-由于A获取到锁以后，即便是sleep也不会释放锁，因B获取不到锁，也就没法执行。
+<font size="2">&ensp;&ensp;&ensp;&ensp;不管执行多少次，都是先A输出再B输出 或者先B输出再A输出，不会出现交叉输出的状况，
+由于A获取到锁以后，即便是sleep也不会释放锁，因B获取不到锁，也就没法执行。</font>
 
-执行结果：
+<font size="2">执行结果：
+</font>
+
 ```
 16:58:38.864 [A] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - A休眠10秒不放弃锁
 16:58:48.871 [A] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - A休眠10秒醒来
 16:58:48.871 [B] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - B休眠10秒不放弃锁
 16:58:58.874 [B] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - B休眠10秒醒来
 ```
-或者
+<font size="2">或者</font>
 ```
 17:03:58.093 [B] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - B休眠10秒不放弃锁
 17:04:08.108 [B] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - B休眠10秒醒来
@@ -146,7 +148,7 @@ public class ThreadSleepDontReleaseMonitor implements Runnable{
     }
 }
 ```
-执行结果
+<font size="2">执行结果</font>
 ```
 20:44:29.357 [A] INFO cn.itcast.methods.ThreadSleepDontReleaseMonitor - A线程获取到了同步锁
 20:44:34.360 [A] INFO cn.itcast.methods.ThreadSleepDontReleaseMonitor - A线程醒了，退出同步代码块
@@ -193,19 +195,22 @@ public class ThreadSleepDontReleaseLock implements Runnable{
     }
 }
 ```
-执行结果
+<font size="2">执行结果</font>
 ```
 20:51:40.122 [A] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - 线程A获取到了锁
 20:51:50.246 [A] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - 线程A已经苏醒
 20:51:50.246 [B] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - 线程B获取到了锁
 20:52:00.258 [B] INFO cn.itcast.methods.ThreadSleepDontReleaseLock - 线程B已经苏醒
 ```
-由上面三个示例可以看出sleep 特点：不释放锁，不管是什么锁（包括 synchronized 和 lock），都不释放，我就一直睡觉，有什么锁就存着，直到sleep时间结束，才会将锁释放了。
+<font size="2">&ensp;&ensp;&ensp;&ensp;由上面三个示例可以看出sleep 特点：不释放锁，不管是什么锁（包括 synchronized 和 lock），都不释放，我就一直睡觉，有什么锁就存着，直到sleep时间结束，才会将锁释放了。</font>
 
 #### 5、响应中断
+```
 sleep 方法响应中断
 - 抛出 InterruptedException
 - 清除中断状态
+```
+
 ```java
 package cn.itcast.methods;
 
@@ -244,7 +249,7 @@ public class ThreadSleepInterrupted implements Runnable{
     }
 }
 ```
-执行结果
+<font size="2">执行结果</font>
 ```
 21:26:46.399 [Thread-0] INFO cn.itcast.methods.ThreadSleepInterrupted - 当前时间：1625750806390
 21:26:47.411 [Thread-0] INFO cn.itcast.methods.ThreadSleepInterrupted - 当前时间：1625750807411
@@ -264,6 +269,8 @@ java.lang.InterruptedException: sleep interrupted
 21:26:54.018 [Thread-0] INFO cn.itcast.methods.ThreadSleepInterrupted - 当前时间：1625750814018
 21:26:55.026 [Thread-0] INFO cn.itcast.methods.ThreadSleepInterrupted - 当前时间：1625750815026
 ```
-响应了中断，然后继续执行
+<font size="2">响应了中断，然后继续执行</font>
 
-sleep 方法可以让线程进入 waiting 状态，并且不占用 cpu 资源，但是不会释放锁，直到规定时间后再执行，休眠期间如果被中断，会抛出异常并清除中断状态
+<font size="2">&ensp;&ensp;&ensp;&ensp;sleep 方法可以让线程进入 waiting 状态，并且不占用 cpu 资源，但是不会释放锁，直到规定时间后再执行，休眠期间如果被中断，会抛出异常并清除中断状态
+</font>
+

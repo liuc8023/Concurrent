@@ -1,4 +1,5 @@
-先上一段代码，运行结果是什么
+<font size="2">先上一段代码，运行结果是什么
+</font>
 
 ```java
 package cn.itcast;
@@ -23,13 +24,14 @@ public class ThreadTest {
 }
 ```
 
-执行结果是
+<font size="2">执行结果</font>
 ```
 21:05:55.066 [main] INFO cn.itcast.ThreadTest - Sougo:main线程
 21:05:55.068 [main] INFO cn.itcast.ThreadTest - Hello:main线程
 ```
 
-如果修改为t.start(),结果是
+<font size="2">如果修改为t.start(),结果是
+</font>
 ```java
 package cn.itcast;
 
@@ -52,7 +54,7 @@ public class ThreadTest {
     }
 }
 ```
-执行结果
+<font size="2">执行结果</font>
 ```
 21:07:51.875 [main] INFO cn.itcast.ThreadTest - Hello:main线程
 21:07:51.875 [Thread-0] INFO cn.itcast.ThreadTest - Sougo:Thread-0线程
@@ -76,9 +78,10 @@ public class ThreadTest {
 执行完毕后才可继续执行下面的代码，这样就没有达到多线程的目的。
 ```
 
-总结：调用start方法方可启动线程，而run方法只是thread的一个普通方法调用，还是在主线程里
+<font size="2">&ensp;&ensp;&ensp;&ensp;总结：调用start方法方可启动线程，而run方法只是thread的一个普通方法调用，还是在主线程里</font>
 
-1.  start方法可以启动一个线程，run方法不能
-2. start方法不能被重复调用，run方法可以
-3. start中的run方法可以不执行完就继续执行下面的代码，即进行了线程切换。直接调用run方法必须等待其代码全部执行完才能继续执行下面的代码
-4. start方法实现了多线程，run方法没有执行多线程
+1.  <font size="2">start方法可以启动一个线程，run方法不能</font>
+2. <font size="2">start方法不能被重复调用，run方法可以</font>
+3. <font size="2">start中的run方法可以不执行完就继续执行下面的代码，即进行了线程切换。直接调用run方法必须等待其代码全部执行完才能继续执行下面的代码</font>
+4. <font size="2">start方法实现了多线程，run方法没有执行多线程</font>
+

@@ -62,3 +62,7 @@ c
 3src/main/java/cn/itcast/methods/ThreadDaemonIo.java,2\3\233ff4bac00a6afdb5fcc5d9bdac0715940adaad
 a
 1src/main/java/cn/itcast/methods/ThreadDaemon.java,f\9\f9d6b43af53b44ee8dece952b68caf02a4a25e38
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+b
+2src/main/java/cn/itcast/methods/ThreadIsAlive.java,5\5\554c6b2cbe6d5a596293761a0bfe1ab09e536d1d
