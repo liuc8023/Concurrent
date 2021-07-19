@@ -4,9 +4,9 @@
 
 <font size="2">&ensp;&ensp;&ensp;&ensp;我们都知道 JVM 中由堆、栈、方法区所组成，其中栈内存是给谁用的呢？其实就是线程，每个线程启动后，虚拟机就会为其分配一块栈内存。</font>
 
-<font color="red">**每个栈由多个栈帧（Frame）组成，对应着每次方法调用时所占用的内存**</font>
+<font size="2">&ensp;&ensp;&ensp;&ensp;<font color="red">**每个栈由多个栈帧（Frame）组成，对应着每次方法调用时所占用的内存**</font>
 
-<font color="red">**每个线程只能有一个活动栈帧，对应着当前正在执行的那个方法**</font>
+<font size="2">&ensp;&ensp;&ensp;&ensp;<font color="red">**每个线程只能有一个活动栈帧，对应着当前正在执行的那个方法**</font>
 
 ## 二、运行过程
 
