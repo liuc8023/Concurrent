@@ -265,7 +265,32 @@ public class ThreadYieldDontReleaseLock implements Runnable{
 <font size="2">执行结果</font>
 
 ```
-17:03:25.665 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程A获取到了锁17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======017:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======117:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======217:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======317:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======417:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======517:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A线程让行17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======617:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======717:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======817:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======917:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程A已经苏醒17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程B获取到了锁17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======017:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======117:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======217:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======317:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======417:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======517:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B线程让行17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======617:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======717:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======817:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======917:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程B已经苏醒
+17:03:25.665 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程A获取到了锁
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======0
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======1
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======2
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======3
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======4
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======5
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A线程让行
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======6
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======7
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======8
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - A======threadYield======9
+17:03:25.670 [A] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程A已经苏醒
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程B获取到了锁
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======0
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======1
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======2
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======3
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======4
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======5
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B线程让行
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======6
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======7
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======8
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - B======threadYield======9
+17:03:25.670 [B] INFO cn.itcast.methods.ThreadYieldDontReleaseLock - 线程B已经苏醒
 ```
 
 <font size="2">&ensp;&ensp;&ensp;&ensp;从执行结果可以看出，线程调用了yield方法之后并未释放lock锁</font>
