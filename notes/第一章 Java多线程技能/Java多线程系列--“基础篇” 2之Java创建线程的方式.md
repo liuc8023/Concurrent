@@ -317,8 +317,6 @@ public class FutureTaskTest {
 ```
 10:07:47.175 [Thread-0] DEBUG cn.itcast.FutureTaskTest - running
 10:07:48.188 [main] INFO cn.itcast.FutureTaskTest - 线程返回值：1
-
-Process finished with exit code 0
 ```
 
 **分享一道面试题**
