@@ -1,13 +1,18 @@
 package cn.itcast.methods;
 
 import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.TimeUnit;
 
 /**
- * 测试在睡眠中停止
+ * @description 测试先停止再遇到sleep
+ * @author liuc
+ * @date 2021/7/20 13:51
+ * @since JDK1.8
+ * @version V1.0
  */
 @Slf4j
-public class ThreadSleepInterrupt implements Runnable{
+public class ThreadInterruptSleep implements Runnable{
     @Override
     public void run() {
         try {
@@ -18,23 +23,17 @@ public class ThreadSleepInterrupt implements Runnable{
             TimeUnit.MINUTES.sleep(20);
             log.info("run end");
         } catch (InterruptedException e) {
-            log.info("在沉睡中被停止！进入catch！"+Thread.currentThread().isInterrupted());
+            log.error("先停止，在遇到了sleep！进入catch！"+Thread.currentThread().isInterrupted());
             e.printStackTrace();
         }
         log.info("线程结束了");
     }
 
     public static void main(String[] args) {
-        try {
-            ThreadSleepInterrupt r = new ThreadSleepInterrupt();
-            Thread t = new Thread(r);
-            t.start();
-            TimeUnit.MILLISECONDS.sleep(200);
-            t.interrupt();
-        } catch (InterruptedException e) {
-            log.info("main catch");
-            e.printStackTrace();
-        }
+        ThreadInterruptSleep r = new ThreadInterruptSleep();
+        Thread t = new Thread(r);
+        t.start();
+        t.interrupt();
         log.info("end");
     }
 }
