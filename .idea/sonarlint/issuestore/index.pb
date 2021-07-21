@@ -84,7 +84,3 @@ i
 9src/main/java/cn/itcast/methods/ThreadInterruptSleep.java,7\5\758a586f23c565179596f394fe0aef56ad4c7b11
 d
 4src/main/java/cn/itcast/methods/ThreadInterrupt.java,1\c\1ccae00c90738095d936ebea148e6a6ebc2a6b84
-h
-8src/main/java/cn/itcast/methods/ThreadStopThrowLock.java,f\0\f0a6b55a468399188850ef48a51712916b59f4d3
-n
->src/main/java/cn/itcast/methods/ThreadUserReturnInterrupt.java,8\9\893989956b2c0a16b63ed9e9fb50de243edd6875
